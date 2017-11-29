@@ -70,9 +70,10 @@ function changeStatus(id) {
 function EditManagerHandler(event) {
 	event.preventDefault();
 	idManager = $(this).data("managerid");  
-
-	$.get('../api/ManagersManagement/GetManager', { id: idManager },
+	alert(idManager);
+	$.get('../api/Managers/GetManager/'+ idManager,
 		function (html) {
+		    console.log(html);
 			$('#editManagerModal').modal('show', { backdrop: 'static' });
 			$('#editManagerModal').on('shown.bs.modal', function () {
 				$('#id').val(html.Id);
@@ -93,7 +94,7 @@ function EditManagerHandler(event) {
 						placeholder: 'Select countries',
 						escapeMarkup: function (m) { return m; },
 						data: [(html.Countries).forEach(function (element) {
-							$("#countries").append($('<option>', { value: element.Id, text: element.Text, selected: element.IsChecked }));
+							$("#countries").append($('<option>', { value: element.Id, text: element.Name, selected: false }));
 						})],
 						language: {
 							noResults: function () {
@@ -145,7 +146,7 @@ function saveEditing(idManager) {
 		};
 	$.ajax({
 		type: "POST",
-		url: "../api/ManagersManagement/AddManager",
+		url: "../api/Managers/AddManager",
 		data: postObject,
 		success: function () {
 			$('#managersTable').DataTable().ajax.reload();
@@ -158,7 +159,7 @@ function saveEditing(idManager) {
 }
 
 function addManager(event) {
-	$.get('../api/ManagersManagement/GetCountries',
+    $.get('../api/Managers/GetCountries',
 		function (html) {
 			$('#editManagerModal').modal('show', { backdrop: 'static' });
 			$('#editManagerModal').on('shown.bs.modal', function () {

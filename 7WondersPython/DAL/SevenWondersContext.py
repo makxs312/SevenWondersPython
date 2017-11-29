@@ -3,7 +3,11 @@ pypyodbc.lowercase = False
 
 class SevenWondersContext(object):
     GET_MANAGERS_SPROC = "[dbo].[GetManagers]"
+    GET_MANAGER_SPROC = "[dbo].[GetManager]"
     CHANGE_MANAGER_STATUS_SPROC = "[dbo].[ChangeManagerStatus]"
+    EDIT_MANAGER_SPROC = "[dbo].[EditManager]"
+    ADD_MANAGER_SPROC = "[dbo].[AddManager]"
+    GET_COUNTRIES_SPROC = "[dbo].[GetCountries]"
     SEPARATOR = ","
 
     def exec_no_param_sproc(self, sproc_name):

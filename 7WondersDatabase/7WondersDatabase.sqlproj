@@ -62,11 +62,16 @@
   <ItemGroup>
     <None Include="StoredProcedures\GetManagers.sql" />
     <None Include="StoredProcedures\Script1.sql" />
+    <None Include="StoredProcedures\Script2.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="StoredProcedures\ChangeManagerStatus.sql">
       <SuppressTSqlWarnings>71502</SuppressTSqlWarnings>
     </Build>
+    <Build Include="StoredProcedures\EditManager_1.sql" />
+    <Build Include="StoredProcedures\GetManager.sql" />
+    <Build Include="StoredProcedures\GetCountries.sql" />
+    <Build Include="StoredProcedures\AddManager.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">
