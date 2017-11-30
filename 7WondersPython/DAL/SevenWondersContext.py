@@ -8,6 +8,8 @@ class SevenWondersContext(object):
     EDIT_MANAGER_SPROC = "[dbo].[EditManager]"
     ADD_MANAGER_SPROC = "[dbo].[AddManager]"
     GET_COUNTRIES_SPROC = "[dbo].[GetCountries]"
+    GET_FLIGHTS_SPROC = "[dbo].[GetFlights]"
+    GET_SCHEDULE_SPROC = "[dbo].[GetSchedule]"
     SEPARATOR = ","
 
     def exec_no_param_sproc(self, sproc_name):
@@ -17,7 +19,7 @@ class SevenWondersContext(object):
         return self.__exec_sproc(sproc_name, params)
 
     def __connect(self):
-        connection = pypyodbc.connect('Driver={ODBC Driver 13 for SQL Server};Server=(localdb)\MSSQLLocalDB;Database=SevenWonders3;Trusted_Connection=Yes;')
+        connection = pypyodbc.connect('Driver={ODBC Driver 13 for SQL Server};Server=(localdb)\MSSQLLocalDB;Database=NEBRASKA;Trusted_Connection=Yes;')
         return connection.cursor()
 
     def __construct_command(self, sproc_name, params = None):

@@ -4,6 +4,7 @@ easy_install
 os
 glob
 test_stevedore
+install_context
 setup_module
 urlopen
 test_pbr

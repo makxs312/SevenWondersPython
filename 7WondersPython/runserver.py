@@ -2,6 +2,7 @@ from os import environ
 from flask import Flask, json, Response
 from flask import render_template
 from Controllers.ManagersController import managers_controller
+from Controllers.FlightsController import flights_controller
 from flask_jwt_extended import JWTManager
 from Helpers.json_helper import json_types_handler
 from jinja2 import TemplateNotFound
@@ -12,6 +13,7 @@ jwt = JWTManager(app)
 
 wsgi_app = app.wsgi_app
 app.register_blueprint(managers_controller)
+app.register_blueprint(flights_controller)
 
 json.JSONEncoder.default = json_types_handler
 
@@ -25,9 +27,16 @@ def index():
     return render_template('Home/Index.html',data=data)
 
 @app.route('/ManagersManagement/Index.html')
-def html_lookup():
+def managers_html_lookup():
     try:
         return render_template('ManagersManagement/Index.html')
+    except TemplateNotFound:
+        abort(404)
+
+@app.route('/Flights/Index.html')
+def flights_html_lookup():
+    try:
+        return render_template('Flights/Index.html')
     except TemplateNotFound:
         abort(404)
 

@@ -9,7 +9,7 @@ __stdout__
 _clear_type_cache
 _current_frames
 _getframe
-_git
+_mercurial
 api_version
 argv
 builtin_module_names
@@ -52,7 +52,6 @@ path_importer_cache
 platform
 prefix
 py3kwarning
-real_prefix
 setcheckinterval
 setprofile
 setrecursionlimit

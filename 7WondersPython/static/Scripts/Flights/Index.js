@@ -267,7 +267,8 @@ function ScheduleViewModel() {
 			},
 			contentType: "application/json",
 			success: function (result) {
-				self.Schedule([]);
+                self.Schedule([]);
+                print(result)
 				result.forEach(function (item, i, result) {
 					var bits = (item.DepartureTime).split(/\D/);
 					var departureTime = bits[3] + ":" + bits[4] ;

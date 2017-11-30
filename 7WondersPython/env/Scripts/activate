@@ -39,7 +39,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="$(if [ "$OSTYPE" "==" "cygwin" ]; then cygpath -u 'C:\Users\Max\Desktop\SevenWondersPython\7WondersPython\7WondersPython\env'; else echo '/C/Users/Max/Desktop/SevenWondersPython/7WondersPython/7WondersPython/env'; fi;)"
+VIRTUAL_ENV="$(if [ "$OSTYPE" "==" "cygwin" ]; then cygpath -u 'D:\git\SevenWondersPython\7WondersPython\env'; else echo '/D/git/SevenWondersPython/7WondersPython/env'; fi;)"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

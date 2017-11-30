@@ -72,6 +72,8 @@
     <Build Include="StoredProcedures\GetManager.sql" />
     <Build Include="StoredProcedures\GetCountries.sql" />
     <Build Include="StoredProcedures\AddManager.sql" />
+    <Build Include="StoredProcedures\GetFlights.sql" />
+    <Build Include="StoredProcedures\GetSchedule.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">

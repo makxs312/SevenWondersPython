@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\Max\Desktop\SevenWondersPython\7WondersPython\7WondersPython\env"
+set "VIRTUAL_ENV=D:\git\SevenWondersPython\7WondersPython\env"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"

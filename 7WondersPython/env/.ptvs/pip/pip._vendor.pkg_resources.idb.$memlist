@@ -122,7 +122,6 @@ absolute_import
 _provider_factories
 EntryPoint
 collections
-tests
 EGG_NAME
 _get_mro
 tempfile

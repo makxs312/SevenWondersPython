@@ -4,6 +4,7 @@ TestScriptHeader
 tarfile_open
 mock
 BytesIO
+setup_context
 TestPTHFileWriter
 working_set
 TestCommandSpec
@@ -19,6 +20,7 @@ urlparse
 distutils
 tarfile
 itertools
+distutils_package
 ei
 TestEasyInstallTest
 easy_install_pkg

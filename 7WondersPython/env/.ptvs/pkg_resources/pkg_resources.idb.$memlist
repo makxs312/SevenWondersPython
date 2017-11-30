@@ -125,7 +125,6 @@ _provider_factories
 EntryPoint
 collections
 EGG_NAME
-tests
 tempfile
 re
 to_filename
