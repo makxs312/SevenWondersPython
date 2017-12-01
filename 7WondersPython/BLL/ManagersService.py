@@ -21,3 +21,25 @@ class ManagersService(object):
         context = SevenWondersContext()
         context.exec_param_sproc(context.CHANGE_MANAGER_STATUS_SPROC, [("id", id)])
         return
+
+    def add_manager(self, immutableDictForm):
+        context = SevenWondersContext()
+        countries = immutableDictForm.getlist("countries[]")
+        id = immutableDictForm.get("manager[Id]")
+        firstName = immutableDictForm.get("manager[FirstName]")
+        lastName = immutableDictForm.get("manager[LastName]")
+        dateOfBirth = immutableDictForm.get("manager[DateOfBirth]")
+        phoneNumber = immutableDictForm.get("manager[PhoneNumber]")
+        email = immutableDictForm.get("manager[Email]")
+        password = immutableDictForm.get("manager[Password]")
+        countriesList = ",".join(countries)
+        context.exec_param_sproc(context.ADD_MANAGER_SPROC,
+                                 [("id", id),
+                                  ("firstName", firstName),
+                                  ("lastName", lastName),
+                                  ("dateOfBirth", str(dateOfBirth)),
+                                  ("phoneNumber", phoneNumber),
+                                  ("email", str(email)),
+                                  ("password", str(password)),
+                                  ("countriesList", str(countriesList))])
+        return

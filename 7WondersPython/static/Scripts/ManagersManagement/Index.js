@@ -178,7 +178,7 @@ function addManager(event) {
 						placeholder: 'Select countries',
 						escapeMarkup: function (m) { return m; },
 						data: [html.forEach(function (element) {
-							$("#countries").append($('<option>', { value: element.Id, text: element.Text, selected: element.IsChecked }));
+							$("#countries").append($('<option>', { value: element.Id, text: element.Name, selected: element.False }));
 						})],
 						language: {
 							noResults: function () {

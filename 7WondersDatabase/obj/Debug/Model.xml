@@ -51,6 +51,288 @@
 				</Entry>
 			</Relationship>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[AddManager]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	
+	IF EXISTS (SELECT Id FROM Managers WHERE Id = @id)
+		EXEC [dbo].[EditManager] @id, @firstName, @lastName, @dateOfBirth, @phoneNumber, @email, @password, @countriesList
+	ELSE
+		BEGIN TRANSACTION
+		DECLARE @countries TABLE (Id INT)
+		INSERT INTO @countries(Id) (SELECT * FROM dbo.SplitString(@countriesList))
+		DECLARE @currentEmail NVARCHAR(MAX)
+		SET @currentEmail = (SELECT Email FROM Managers WHERE Id = @id)
+		BEGIN TRY
+		DECLARE @newManId BIGINT
+			SET @newManId = (SELECT MAX(Id) FROM Users) + 1
+			INSERT INTO Managers([FirstName], [LastName], [PhoneNumber], [DateOfBirth], [Email], [IsDeleted]) VALUES(@firstName, @lastName, @phoneNumber, @dateOfBirth, @email, 0)
+
+			DECLARE @newId BIGINT
+			SET @newId = (SELECT MAX(Id) FROM Users) + 1
+			DECLARE @managerRole BIGINT
+			SET @managerRole = 3
+			INSERT INTO Users([Email], [Password], [RoleId]) VALUES (@email, @password, @managerRole)
+
+
+			DECLARE @countriesCount BIGINT
+			SET @countriesCount = (SELECT COUNT(Id) FROM @countries)
+			WHILE (@countriesCount > 0)
+			BEGIN
+				UPDATE Countries
+				SET ManagerId = (SELECT MAX(Id) FROM Managers)
+				WHERE Id = (SELECT TOP 1 Id FROM @countries)
+				DELETE FROM @countries WHERE Id = (SELECT TOP 1 Id FROM @countries)
+				SET @countriesCount = @countriesCount - 1
+			END
+			COMMIT
+			SELECT 0 AS Result
+		END TRY
+		BEGIN CATCH
+			SELECT ERROR_MESSAGE() AS Result
+			ROLLBACK
+		END CATCH
+RETURN 0]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bigint]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bigint]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bigint]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bigint]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[AddManager].[@id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[EditManager]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddManager].[@firstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddManager].[@lastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddManager].[@dateOfBirth]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddManager].[@phoneNumber]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddManager].[@email]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddManager].[@password]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddManager].[@countriesList]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddManager].[@countries].[Id]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[AddManager].[@countries].[Id]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[AddManager].[@countries].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DynamicObjects">
+				<Entry>
+					<Element Type="SqlDynamicColumnSource" Name="[dbo].[AddManager].[@countries]">
+						<Relationship Name="Columns">
+							<Entry>
+								<Element Type="SqlSimpleColumn" Name="[dbo].[AddManager].[@countries].[Id]">
+									<Relationship Name="TypeSpecifier">
+										<Entry>
+											<Element Type="SqlTypeSpecifier">
+												<Relationship Name="Type">
+													<Entry>
+														<References ExternalSource="BuiltIns" Name="[int]" />
+													</Entry>
+												</Relationship>
+											</Element>
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddManager].[@id]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bigint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddManager].[@firstName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddManager].[@lastName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddManager].[@dateOfBirth]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddManager].[@phoneNumber]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddManager].[@email]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddManager].[@password]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddManager].[@countriesList]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="2" />
+				<Property Name="Length" Value="1687" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xD;&#xA;CREATE PROCEDURE [dbo].[AddManager]&#xD;&#xA;&#x9;@id BIGINT,&#xD;&#xA;&#x9;@firstName NVARCHAR(MAX),&#xD;&#xA;&#x9;@lastName NVARCHAR(MAX),&#xD;&#xA;&#x9;@dateOfBirth DATETIME,&#xD;&#xA;&#x9;@phoneNumber NVARCHAR(MAX),&#xD;&#xA;&#x9;@email NVARCHAR(MAX),&#xD;&#xA;&#x9;@password NVARCHAR(MAX),&#xD;&#xA;&#x9;@countriesList NVARCHAR(MAX)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[ChangeManagerStatus]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
@@ -369,11 +651,12 @@ RETURN 0]]></Value>
 		<Element Type="SqlProcedure" Name="[dbo].[GetCountries]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
-	SELECT * FROM Countries
+	SELECT * FROM Countries WHERE IsDeleted = 0
 RETURN 0]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="BodyDependencies">
+				<Entry />
 				<Entry />
 			</Relationship>
 			<Relationship Name="Schema">
@@ -382,10 +665,10 @@ RETURN 0]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="79" />
+				<Property Name="Length" Value="100" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[GetCountries]&#xD;&#xA;&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE  PROCEDURE [dbo].[GetCountries]&#xD;&#xA;&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[GetManager]">
