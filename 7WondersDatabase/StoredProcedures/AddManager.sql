@@ -19,12 +19,7 @@ AS
 		DECLARE @currentEmail NVARCHAR(MAX)
 		SET @currentEmail = (SELECT Email FROM Managers WHERE Id = @id)
 		BEGIN TRY
-		DECLARE @newManId BIGINT
-			SET @newManId = (SELECT MAX(Id) FROM Users) + 1
 			INSERT INTO Managers([FirstName], [LastName], [PhoneNumber], [DateOfBirth], [Email], [IsDeleted]) VALUES(@firstName, @lastName, @phoneNumber, @dateOfBirth, @email, 0)
-
-			DECLARE @newId BIGINT
-			SET @newId = (SELECT MAX(Id) FROM Users) + 1
 			DECLARE @managerRole BIGINT
 			SET @managerRole = 3
 			INSERT INTO Users([Email], [Password], [RoleId]) VALUES (@email, @password, @managerRole)

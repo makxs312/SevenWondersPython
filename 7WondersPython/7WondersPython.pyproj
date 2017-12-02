@@ -30,10 +30,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BLL\CustomersService.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BLL\ManagersService.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BLL\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\CustomersController.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\ManagersController.py">
@@ -154,6 +160,7 @@
     <Folder Include="static\Scripts\Tours\" />
     <Folder Include="templates\ManagersManagement\" />
     <Folder Include="templates\Home\" />
+    <Folder Include="templates\CustomersManagement\" />
     <Folder Include="_7WondersPython\" />
     <Folder Include="static\" />
     <Folder Include="templates\" />
@@ -405,6 +412,7 @@
     <Content Include="static\Scripts\CustomersManagement\Index.js" />
     <Content Include="static\Scripts\Flights\Index.js" />
     <Content Include="static\Scripts\Home\Index.js" />
+    <Content Include="templates\CustomersManagement\Index.html" />
     <Content Include="templates\Home\Index.html" />
     <Content Include="templates\ManagersManagement\Index.html" />
     <None Include="static\Scripts\jquery-1.10.2.intellisense.js" />
@@ -445,7 +453,6 @@
     <Content Include="static\Scripts\Tours\Index.js" />
     <None Include="static\Scripts\_references.js" />
     <Content Include="static\style.css" />
-    <Content Include="templates\index.html" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">

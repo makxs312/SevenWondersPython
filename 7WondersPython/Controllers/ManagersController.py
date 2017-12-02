@@ -6,16 +6,6 @@ import pdb
 managers_controller = Blueprint("managers_controller", __name__, url_prefix = "/api/Managers")
 service = ManagersService()
 
-class Responce(object):
-    Countries = [],
-    DateOfBirth = "",
-    Email = "",
-    FirstName = "",
-    Id = "",
-    IsDeleted = "",
-    LastName = "",
-    PhoneNumber = ""
-
 @managers_controller.route("/GetManagers", methods=["POST"])
 def get_managers():
     data = service.get_managers()
@@ -30,8 +20,6 @@ def get_countries():
 def get_manager(id):
     data = service.get_manager(id)
     result = data[0]
-    responce = Responce(),
-    #responce.DateOfBirth = result.DateOfBirth
     result["Countries"] = service.get_countries()
     return jsonify(result)
 

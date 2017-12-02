@@ -62,7 +62,6 @@
   <ItemGroup>
     <None Include="StoredProcedures\GetManagers.sql" />
     <None Include="StoredProcedures\Script1.sql" />
-    <None Include="StoredProcedures\Script2.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="StoredProcedures\ChangeManagerStatus.sql">
@@ -72,6 +71,8 @@
     <Build Include="StoredProcedures\GetManager.sql" />
     <Build Include="StoredProcedures\GetCountries.sql" />
     <Build Include="StoredProcedures\AddManager.sql" />
+    <Build Include="StoredProcedures\GetCustomers.sql" />
+    <Build Include="StoredProcedures\ChangeCustomerStatus.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">
