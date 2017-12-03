@@ -20,7 +20,6 @@ def get_countries():
 def get_manager(id):
     data = service.get_manager(id)
     result = data[0]
-    result["Countries"] = service.get_countries()
     return jsonify(result)
 
 @managers_controller.route("/ChangeManagerStatus/<int:id>", methods=["POST"])
@@ -32,3 +31,4 @@ def change_manager_status(id):
 def add_manager():
     service.add_manager(request.form)
     return 'Ok'
+

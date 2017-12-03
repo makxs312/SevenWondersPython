@@ -70,7 +70,6 @@ function changeStatus(id) {
 function EditManagerHandler(event) {
 	event.preventDefault();
 	idManager = $(this).data("managerid");  
-	alert(idManager);
 	$.get('../api/Managers/GetManager/'+ idManager,
 		function (html) {
 		    console.log(html);
@@ -94,7 +93,7 @@ function EditManagerHandler(event) {
 						placeholder: 'Select countries',
 						escapeMarkup: function (m) { return m; },
 						data: [(html.Countries).forEach(function (element) {
-							$("#countries").append($('<option>', { value: element.Id, text: element.Name, selected: false }));
+							$("#countries").append($('<option>', { value: element.Id, text: element.Text, selected: element.IsChecked }));
 						})],
 						language: {
 							noResults: function () {
