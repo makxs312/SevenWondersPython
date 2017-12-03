@@ -11,8 +11,11 @@ CREATE PROCEDURE [dbo].[AddManager]
 AS
 	
 	IF EXISTS (SELECT Id FROM Managers WHERE Id = @id)
+		BEGIN
 		EXEC [dbo].[EditManager] @id, @firstName, @lastName, @dateOfBirth, @phoneNumber, @email, @password, @countriesList
+		END
 	ELSE
+		BEGIN
 		BEGIN TRANSACTION
 		DECLARE @countries TABLE (Id INT)
 		INSERT INTO @countries(Id) (SELECT * FROM dbo.SplitString(@countriesList))
@@ -42,4 +45,5 @@ AS
 			SELECT ERROR_MESSAGE() AS Result
 			ROLLBACK
 		END CATCH
+		END
 RETURN 0

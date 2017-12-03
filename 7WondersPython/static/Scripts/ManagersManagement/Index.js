@@ -94,7 +94,7 @@ function EditManagerHandler(event) {
 						placeholder: 'Select countries',
 						escapeMarkup: function (m) { return m; },
 						data: [(html.Countries).forEach(function (element) {
-							$("#countries").append($('<option>', { value: element.Id, text: element.Name, selected: false }));
+							$("#countries").append($('<option>', { value: element.Id, text: element.Text, selected: element.IsChecked }));
 						})],
 						language: {
 							noResults: function () {

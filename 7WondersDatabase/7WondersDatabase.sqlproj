@@ -73,6 +73,7 @@
     <Build Include="StoredProcedures\AddManager.sql" />
     <Build Include="StoredProcedures\GetCustomers.sql" />
     <Build Include="StoredProcedures\ChangeCustomerStatus.sql" />
+    <Build Include="StoredProcedures\GetCountriesForManager.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">
