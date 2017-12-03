@@ -10,6 +10,9 @@ class SevenWondersContext(object):
     EDIT_MANAGER_SPROC = "[dbo].[EditManager]"
     ADD_MANAGER_SPROC = "[dbo].[AddManager]"
     GET_COUNTRIES_SPROC = "[dbo].[GetCountries]"
+    GET_COUNTRY_SPROC = "[dbo].[GetCountry]"
+    IS_NAME_VALID_SPROC = "[dbo].[IsNameValid]"
+    DELETE_COUNTRY_SPROC = "[dbo].[DeleteCountry]"
     SEPARATOR = ","
 
     def exec_no_param_sproc(self, sproc_name):

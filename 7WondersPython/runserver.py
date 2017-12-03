@@ -3,6 +3,7 @@ from flask import Flask, json, Response
 from flask import render_template
 from Controllers.ManagersController import managers_controller
 from Controllers.CustomersController import customers_controller
+from Controllers.CountriesController import countries_controller
 from flask_jwt_extended import JWTManager
 from Helpers.json_helper import json_types_handler
 from jinja2 import TemplateNotFound
@@ -14,9 +15,9 @@ jwt = JWTManager(app)
 wsgi_app = app.wsgi_app
 app.register_blueprint(managers_controller)
 app.register_blueprint(customers_controller)
+app.register_blueprint(countries_controller)
 
 json.JSONEncoder.default = json_types_handler
-
 
 @app.route('/')
 def index():
@@ -37,6 +38,13 @@ def html_managers_management_lookup():
 def html_customers_management_lookup():
     try:
         return render_template('CustomersManagement/Index.html')
+    except TemplateNotFound:
+        abort(404)
+
+@app.route('/Countries/Index.html')
+def html_countries_lookup():
+    try:
+        return render_template('Countries/Index.html')
     except TemplateNotFound:
         abort(404)
 
