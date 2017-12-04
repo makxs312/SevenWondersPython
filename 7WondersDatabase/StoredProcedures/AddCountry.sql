@@ -1,6 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[AddCountry]
-	@param1 int = 0,
-	@param2 int
-AS
-	SELECT @param1, @param2
+	@id BIGINT,
+	@name NVARCHAR(MAX)
+AS	
+	IF EXISTS (SELECT * FROM Countries WHERE Id = @id)
+		UPDATE Countries
+		SET Name= @name
+		WHERE Id=@id;
+	ELSE
+		INSERT INTO Countries (Name, ManagerId, IsDeleted)
+		VALUES (@name,NULL, 0);	
 RETURN 0

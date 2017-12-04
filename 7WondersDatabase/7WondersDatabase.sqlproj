@@ -73,10 +73,15 @@
     <Build Include="StoredProcedures\GetCustomers.sql" />
     <Build Include="StoredProcedures\ChangeCustomerStatus.sql" />
     <Build Include="StoredProcedures\GetCountry.sql" />
-    <Build Include="StoredProcedures\IsNameValid.sql" />
     <Build Include="StoredProcedures\AddCountry.sql" />
     <Build Include="StoredProcedures\DeleteCountry.sql" />
     <Build Include="StoredProcedures\GetCountriesForManager.sql" />
+    <Build Include="StoredProcedures\AddCity.sql" />
+    <Build Include="StoredProcedures\DeleteCity.sql" />
+    <Build Include="StoredProcedures\GetCities.sql" />
+    <Build Include="StoredProcedures\GetCity.sql" />
+    <Build Include="StoredProcedures\IsCityNameValid.sql" />
+    <Build Include="StoredProcedures\IsCountryNameValid.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">

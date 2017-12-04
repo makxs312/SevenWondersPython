@@ -13,15 +13,24 @@ def get_countries():
 
 @countries_controller.route("/GetCountry", methods=["GET"])
 def get_country():
-    data = service.get_country(request.args.get('id', ''))
+    data = service.get_country(request.args.get('id', ''))[0]
     return jsonify(data)
 
-@countries_controller.route("/IsNameValid", methods=["GET"])
+@countries_controller.route("/AddCountry", methods=["POST"])
+def add_country():
+    service.add_country(request.get_json())
+    return 'Ok'
+
+@countries_controller.route("/IsNameValid", methods=["Get"])
 def is_name_valid():
-    valid = service.is_name_valid(request.args.get('id', ''), request.args.get('name', ''))
-    return jsonify(len(valid) == 0)
+    data = service.is_name_valid(request.args);
+    if data[0].values()[0] == 'True':
+        return jsonify(True)
+    else:
+       return jsonify(False)
 
 @countries_controller.route("/DeleteCountry", methods=["POST"])
 def delete_country():
-    service.delete_country(request.args.get('id', ''))
+    id = request.get_json();
+    service.delete_country(id)
     return 'Ok'

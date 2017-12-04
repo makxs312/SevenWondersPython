@@ -9,11 +9,19 @@ class SevenWondersContext(object):
     CHANGE_CUSTOMER_STATUS_SPROC = "[dbo].[ChangeCustomerStatus]"
     EDIT_MANAGER_SPROC = "[dbo].[EditManager]"
     ADD_MANAGER_SPROC = "[dbo].[AddManager]"
+
     GET_COUNTRIES_SPROC = "[dbo].[GetCountries]"
-    GET_COUNTRY_SPROC = "[dbo].[GetCountry]"
-    IS_NAME_VALID_SPROC = "[dbo].[IsNameValid]"
     DELETE_COUNTRY_SPROC = "[dbo].[DeleteCountry]"
-    GET_COUNTRIES_FOR_MANAGER_SPROC = "[dbo].[GetCountriesForManager]"
+    GET_COUNTRY_SPROC = "[dbo].[GetCountry]"
+    ADD_COUNTRY_SPROC = "[dbo].[AddCountry]"
+    IS_COUNTRY_NAME_VALID = "[dbo].[IsCountryNameValid]"
+
+    GET_CITIES_SPROC = "[dbo].[GetCities]"
+    DELETE_CITY_SPROC = "[dbo].[DeleteCity]"
+    GET_CITY_SPROC = "[dbo].[GetCity]"
+    ADD_CITY_SPROC = "[dbo].[AddCity]"
+    IS_CITY_NAME_VALID = "[dbo].[IsCityNameValid]"
+
     SEPARATOR = ","
 
     def exec_no_param_sproc(self, sproc_name):
@@ -23,7 +31,7 @@ class SevenWondersContext(object):
         return self.__exec_sproc(sproc_name, params)
 
     def __connect(self):
-        connection = pypyodbc.connect('Driver={ODBC Driver 13 for SQL Server};Server=(localdb)\MSSQLLocalDB;Database=SevenWonders3;Trusted_Connection=Yes;')
+        connection = pypyodbc.connect('Driver={ODBC Driver 13 for SQL Server};Server=DESKTOP-7HN4MEC\SQLEXPRESS;Database=SevenWonders;Trusted_Connection=Yes;')
         return connection.cursor()
 
     def __construct_command(self, sproc_name, params = None):

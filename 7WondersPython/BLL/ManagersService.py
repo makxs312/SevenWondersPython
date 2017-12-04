@@ -1,9 +1,6 @@
 from DAL.SevenWondersContext import SevenWondersContext
 import itertools
 
-
-
-
 class CountryItem:
     Id = 0
     Text = ""
