@@ -85,7 +85,6 @@
 </body>
 </html>
 
-<script src="../../static/Scripts/Search/Index.js"></script>
 <script src="../../static/Scripts/Tours/Index.js"></script>
 <script src="../../static/Scripts/Home/Index.js"></script>
 
@@ -97,12 +96,9 @@
             this.debug = true;
             var form_fields = null;
 
-            this.get('#/', function () {
-                this.app.swap('Click form!');
-            });
 
             this.get('#/home', function () {
-                this.partial('/Views/Home/HomePage.html');
+                this.partial('/Search/Index.html');
             });
 
             this.get('#/register', function () {
@@ -114,7 +110,7 @@
 			});
 
 			this.get('#/contact', function () {
-				this.partial('/Views/Home/Contact.html');
+                this.partial('/Home/Contact.html');
 			});
 
 			this.get('#/cabinet', function () {
@@ -146,7 +142,7 @@
 			});
 
 			this.get('#/airports', function () {
-				this.partial('/Views/Airports/Index.html');
+				this.partial('/Airports/Index.html');
 			});
 
 			this.get('#/info', function () {

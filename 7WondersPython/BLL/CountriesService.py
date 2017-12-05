@@ -15,14 +15,14 @@ class CountriesService(object):
     def add_country(self, country):
         context = SevenWondersContext()        
         id= country.get("id");
-        name = country.get("name");
+        name = str(country.get("name"));
         context.exec_param_sproc(context.ADD_COUNTRY_SPROC, [("id", id), ("name", name)])
         return
 
     def is_name_valid(self, country):
         context = SevenWondersContext()
         id = country.get("id");
-        name = country.get("name");
+        name = str(country.get("name"));
         isValid = context.exec_param_sproc(context.IS_COUNTRY_NAME_VALID, [("id", id), ("name", name)])
         return isValid;
 
