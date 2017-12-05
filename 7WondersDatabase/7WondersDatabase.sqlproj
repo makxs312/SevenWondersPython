@@ -82,6 +82,7 @@
     <Build Include="StoredProcedures\GetCity.sql" />
     <Build Include="StoredProcedures\IsCityNameValid.sql" />
     <Build Include="StoredProcedures\IsCountryNameValid.sql" />
+    <Build Include="StoredProcedures\GetManagers_1.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">
