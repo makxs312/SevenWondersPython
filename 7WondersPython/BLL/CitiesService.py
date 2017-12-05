@@ -21,7 +21,7 @@ class CitiesService(object):
     def add_city(self, city):
         context = SevenWondersContext()        
         id= city.get("Id");
-        name = city.get("Name");
+        name = str(city.get("Name"));
         countryId = city.get("CountryId");
         context.exec_param_sproc(context.ADD_CITY_SPROC, [("id", id), ("name", name), ("countryId", countryId)])
         return
@@ -29,7 +29,7 @@ class CitiesService(object):
     def is_name_valid(self, city):
         context = SevenWondersContext()
         id = city.get("id");
-        name = city.get("name");
+        name = str(city.get("name"));
         countryId = city.get("countryId");
         isValid = context.exec_param_sproc(context.IS_CITY_NAME_VALID, [("id", id), ("name", name), ("countryId", countryId)])
         return isValid;
