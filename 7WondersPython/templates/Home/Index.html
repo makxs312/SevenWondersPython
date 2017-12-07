@@ -46,16 +46,11 @@
                     <li><a href="#/cities">Cities</a></li>
                     <li><a href="#/airports">Airports</a></li>
                     <li><a href="#/flights">Flights</a></li>
+                    <li><a href="#/tours">Tours</a></li>
 
 
 
 
-                    <li class="dropdown ">
-                        <a class="dropdown-toggle " data-toggle="dropdown" href="#">Statistics<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-
-                        </ul>
-                    </li>
 
                 </ul>
                 <div style="margin-right:1%">
@@ -151,6 +146,10 @@
 
 			this.get('#/info', function () {
 			    this.partial('/Views/CustomerCabinet/Info.html');
+			});
+
+			this.get('#/tours', function () {
+			    this.partial('/ToursManagement/Index.html');
 			});
         });
 

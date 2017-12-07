@@ -4,7 +4,8 @@ from flask import render_template
 from Controllers.ManagersController import managers_controller
 from Controllers.CustomersController import customers_controller
 from Controllers.CountriesController import countries_controller
-from Controllers.CitiesController import cities_controller
+from Controllers.ToursManagementController import tours_management_controller
+from Controllers.FlightController import flight_controller
 from flask_jwt_extended import JWTManager
 from Helpers.json_helper import json_types_handler
 from jinja2 import TemplateNotFound
@@ -17,8 +18,8 @@ wsgi_app = app.wsgi_app
 app.register_blueprint(managers_controller)
 app.register_blueprint(customers_controller)
 app.register_blueprint(countries_controller)
-app.register_blueprint(cities_controller)
-
+app.register_blueprint(tours_management_controller)
+app.register_blueprint(flight_controller)
 json.JSONEncoder.default = json_types_handler
 
 @app.route('/')
@@ -54,6 +55,13 @@ def html_countries_lookup():
 def html_cities_lookup():
     try:
         return render_template('Cities/Index.html')
+    except TemplateNotFound:
+        abort(404)
+
+@app.route('/ToursManagement/Index.html')
+def html_tours_management_lookup():
+    try:
+        return render_template('ToursManagement/Index.html')
     except TemplateNotFound:
         abort(404)
 

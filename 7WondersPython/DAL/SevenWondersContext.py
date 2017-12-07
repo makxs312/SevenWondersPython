@@ -23,6 +23,9 @@ class SevenWondersContext(object):
     ADD_CITY_SPROC = "[dbo].[AddCity]"
     IS_CITY_NAME_VALID = "[dbo].[IsCityNameValid]"
 
+    GET_TOURS_PAGE_MODEL = "[dbo].[GetToursPageModel]"
+    GET_FLIGHT_SHORT_INFO_MODEL = "[dbo].[GetFlightShortInfoModel]"
+
     SEPARATOR = ","
 
     def exec_no_param_sproc(self, sproc_name):

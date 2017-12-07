@@ -36,7 +36,13 @@
     <Compile Include="BLL\CustomersService.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BLL\FlightService.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BLL\ManagersService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BLL\ToursManagementService.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BLL\__init__.py">
@@ -48,7 +54,13 @@
     <Compile Include="Controllers\CustomersController.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\FlightController.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\ManagersController.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ToursManagementController.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\__init__.py">
@@ -161,6 +173,7 @@
     <Folder Include="static\Scripts\KnockoutHelpers\" />
     <Folder Include="static\Scripts\Login\" />
     <Folder Include="static\Scripts\ManagersManagement\" />
+    <Folder Include="static\Scripts\ToursManagement\" />
     <Folder Include="static\Scripts\Register\" />
     <Folder Include="static\Scripts\Search\" />
     <Folder Include="static\Scripts\Tours\" />
@@ -168,6 +181,7 @@
     <Folder Include="templates\Home\" />
     <Folder Include="templates\CustomersManagement\" />
     <Folder Include="templates\Countries\" />
+    <Folder Include="templates\ToursManagement\" />
     <Folder Include="_7WondersPython\" />
     <Folder Include="static\" />
     <Folder Include="templates\" />
@@ -419,10 +433,12 @@
     <Content Include="static\Scripts\CustomersManagement\Index.js" />
     <Content Include="static\Scripts\Flights\Index.js" />
     <Content Include="static\Scripts\Home\Index.js" />
+    <Content Include="static\Scripts\ToursManagement\Index.js" />
     <Content Include="templates\Countries\Index.html" />
     <Content Include="templates\CustomersManagement\Index.html" />
     <Content Include="templates\Home\Index.html" />
     <Content Include="templates\ManagersManagement\Index.html" />
+    <Content Include="templates\ToursManagement\Index.html" />
     <None Include="static\Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="static\Scripts\jquery-1.10.2.js" />
     <Content Include="static\Scripts\jquery-1.10.2.min.js" />
