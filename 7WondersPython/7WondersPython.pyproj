@@ -30,6 +30,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BLL\AccountService.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BLL\AirportsService.py" />
     <Compile Include="BLL\CitiesService.py" />
     <Compile Include="BLL\CountriesService.py">
@@ -42,6 +45,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BLL\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\AccountController.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\AirportsController.py" />
@@ -164,8 +170,9 @@
     <Folder Include="static\Scripts\Flights\globalize\" />
     <Folder Include="static\Scripts\Home\" />
     <Folder Include="static\Scripts\KnockoutHelpers\" />
-    <Folder Include="static\Scripts\Login\" />
+    <Folder Include="static\Scripts\Account\Login\" />
     <Folder Include="static\Scripts\ManagersManagement\" />
+    <Folder Include="static\Scripts\Account\" />
     <Folder Include="static\Scripts\Register\" />
     <Folder Include="static\Scripts\Search\" />
     <Folder Include="static\Scripts\Tours\" />
@@ -175,6 +182,7 @@
     <Folder Include="templates\Home\" />
     <Folder Include="templates\CustomersManagement\" />
     <Folder Include="templates\Countries\" />
+    <Folder Include="templates\Account\" />
     <Folder Include="templates\Search\" />
     <Folder Include="_7WondersPython\" />
     <Folder Include="static\" />
@@ -432,6 +440,7 @@
     <Content Include="static\Scripts\CustomersManagement\Index.js" />
     <Content Include="static\Scripts\Flights\Index.js" />
     <Content Include="static\Scripts\Home\Index.js" />
+    <Content Include="templates\Account\Login.html" />
     <Content Include="templates\Airports\Index.html" />
     <Content Include="templates\Cities\Index.html" />
     <Content Include="templates\Countries\Index.html" />
@@ -462,7 +471,7 @@
     <Content Include="static\Scripts\knockout.validation.js" />
     <Content Include="static\Scripts\knockout.validation.min.js" />
     <Content Include="static\Scripts\knockout.validation.min.js.map" />
-    <Content Include="static\Scripts\Login\Index.js" />
+    <Content Include="static\Scripts\Account\Login\Index.js" />
     <Content Include="static\Scripts\ManagersManagement\Index.js" />
     <Content Include="static\Scripts\modernizr-2.6.2.js" />
     <Content Include="static\Scripts\Register\Index.js" />

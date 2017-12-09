@@ -2,7 +2,6 @@
     var email = $('#email').val();
     var password = $('#password').val();
     var rememberMe = $('rememberMe').val();
-    debugger;
     if (isValid()) {
         $.ajax({
             url: "../api/Account/Login",
@@ -14,8 +13,8 @@
                     RememberMe: rememberMe
                 },
             success: function () {
-                window.location.reload(true);
                 window.location.href = "#/home";
+                headerViewModel.loadHeader();
             },
             error: function (err) {
                 console.log(err);

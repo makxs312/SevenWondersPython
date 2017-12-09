@@ -29,6 +29,9 @@ class SevenWondersContext(object):
     ADD_AIRPORT_SPROC = "[dbo].[AddAirport]"
     IS_AIRPORT_CODE_VALID = "[dbo].[IsAirportCodeValid]"
 
+    GET_USER = "[dbo].[GetUser]"
+    GET_CUSTOMER_BY_EMAIL = "[dbo].[GetCustomerByEmail]"
+    GET_MANAGER_BY_EMAIL = "[dbo].[GetManagerByEmail]"
     SEPARATOR = ","
 
     def exec_no_param_sproc(self, sproc_name):

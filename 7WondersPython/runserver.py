@@ -1,11 +1,12 @@
 from os import environ
 from flask import Flask, json, Response
-from flask import render_template
+from flask import render_template, session
 from Controllers.ManagersController import managers_controller
 from Controllers.CustomersController import customers_controller
 from Controllers.CountriesController import countries_controller
 from Controllers.CitiesController import cities_controller
 from Controllers.AirportsController import airports_controller
+from Controllers.AccountController import account_controller
 from flask_jwt_extended import JWTManager
 from Helpers.json_helper import json_types_handler
 from jinja2 import TemplateNotFound
@@ -20,6 +21,7 @@ app.register_blueprint(customers_controller)
 app.register_blueprint(countries_controller)
 app.register_blueprint(cities_controller)
 app.register_blueprint(airports_controller)
+app.register_blueprint(account_controller)
 
 json.JSONEncoder.default = json_types_handler
 
@@ -80,10 +82,19 @@ def html_contact_lookup():
     except TemplateNotFound:
         abort(404)
 
+@app.route('/Account/Login.html')
+def html_login_lookup():
+    try:
+        return render_template('Account/Login.html')
+    except TemplateNotFound:
+        abort(404)
+
 if __name__ == '__main__':
     HOST = environ.get('SERVER_HOST', 'localhost')
     try:
         PORT = int(environ.get('SERVER_PORT', '5555'))
     except ValueError:
         PORT = 5555
+   
+    app.secret_key = os.urandom(12)
     app.run(HOST, PORT, debug=False, threaded=True)
