@@ -37,8 +37,6 @@
 --      RETURN
 --END
 
-
-
 CREATE PROCEDURE [dbo].[EditManager]
 	@id BIGINT,
 	@firstName NVARCHAR(MAX),
@@ -76,8 +74,11 @@ AS
 				UPDATE Countries
 				SET ManagerId = @id
 				WHERE Id = (SELECT TOP 1 Id FROM @countries)
-				DELETE FROM countries WHERE Id = (SELECT TOP 1 Id FROM @countries)
+				DELETE FROM @countries WHERE Id = (SELECT TOP 1 Id FROM @countries)
+				SET @countriesCount = @countriesCount - 1
 			END
+			COMMIT
+			SELECT 0 AS Result
 		END TRY
 		BEGIN CATCH
 			SELECT ERROR_MESSAGE() AS Result

@@ -1,13 +1,20 @@
 ﻿CREATE PROCEDURE [dbo].[GetCities]
-		@id INT = NULL
+		@countryId INT = NULL,
+		@cityId INT = NULL
 AS
-	IF @id IS NOT NULL
-		SELECT Cities.Id, Cities.Name, Cities.CountryId, Countries.Name as CountryName
-		FROM Cities
-		JOIN Countries ON Cities.CountryId=Countries.Id
-		WHERE Cities.IsDeleted = 0 AND Countries.IsDeleted = 0 AND Countries.Id=@id
-		ORDER BY Name
-
+	IF @countryId IS NOT NULL
+		IF @cityId IS NOT NULL
+			SELECT Cities.Id, Cities.Name, Cities.CountryId, Countries.Name as CountryName
+			FROM Cities
+			JOIN Countries ON Cities.CountryId=Countries.Id
+			WHERE Cities.IsDeleted = 0 AND Countries.IsDeleted = 0 AND Countries.Id=@countryId AND Cities.Id=@cityId
+			ORDER BY Name
+		ELSE 
+			SELECT Cities.Id, Cities.Name, Cities.CountryId, Countries.Name as CountryName
+			FROM Cities
+			JOIN Countries ON Cities.CountryId=Countries.Id
+			WHERE Cities.IsDeleted = 0 AND Countries.IsDeleted = 0 AND Countries.Id=@countryId 
+			ORDER BY Name
 	ELSE
 		SELECT Cities.Id, Cities.Name, Cities.CountryId, Countries.Name as CountryName
 		FROM Cities

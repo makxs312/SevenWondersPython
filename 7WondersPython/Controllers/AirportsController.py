@@ -31,7 +31,7 @@ def add_airport():
 @airports_controller.route("/IsCodeValid", methods=["Get"])
 def is_code_valid():
     data = service.is_code_valid(request.args);
-    if data[0].values()[0] == 'True':
+    if data[0].get('') == 'True':
         return jsonify(True)
     else:
        return jsonify(False)

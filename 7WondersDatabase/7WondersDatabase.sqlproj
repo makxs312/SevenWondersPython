@@ -60,13 +60,10 @@
     <Folder Include="StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="StoredProcedures\Script1.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <Build Include="StoredProcedures\ChangeManagerStatus.sql">
       <SuppressTSqlWarnings>71502</SuppressTSqlWarnings>
     </Build>
-    <Build Include="StoredProcedures\EditManager_1.sql" />
+    <Build Include="StoredProcedures\EditManager.sql" />
     <Build Include="StoredProcedures\GetManager.sql" />
     <Build Include="StoredProcedures\GetCountries.sql" />
     <Build Include="StoredProcedures\AddManager.sql" />
@@ -83,6 +80,41 @@
     <Build Include="StoredProcedures\IsCityNameValid.sql" />
     <Build Include="StoredProcedures\IsCountryNameValid.sql" />
     <Build Include="StoredProcedures\GetManagers_1.sql" />
+    <Build Include="StoredProcedures\GetHotelsForCity.sql" />
+    <Build Include="StoredProcedures\GetFacilitiesForHotel.sql" />
+    <Build Include="StoredProcedures\GetPhotoesForHotel.sql" />
+    <Build Include="StoredProcedures\GetFreeRoomsForHotel.sql" />
+    <Build Include="StoredProcedures\GetEquipmentsForRoom.sql" />
+    <Build Include="StoredProcedures\GetPhotoesForRoom.sql" />
+    <Build Include="StoredProcedures\GetFreeSchedules.sql" />
+    <Build Include="StoredProcedures\GetRoom.sql" />
+    <Build Include="StoredProcedures\GetSchedule.sql" />
+    <Build Include="StoredProcedures\AddReservation.sql" />
+    <Build Include="StoredProcedures\AddTour.sql" />
+    <Build Include="StoredProcedures\GetToursForManager.sql" />
+    <Build Include="StoredProcedures\GetHotel.sql" />
+    <Build Include="StoredProcedures\GetTour.sql" />
+    <Build Include="StoredProcedures\DeleteTour.sql" />
+    <Build Include="StoredProcedures\PayForTour.sql" />
+    <Build Include="StoredProcedures\GetFlights.sql" />
+    <Build Include="StoredProcedures\GetAiroportsForDropDown.sql" />
+    <Build Include="StoredProcedures\GetSchedules.sql" />
+    <Build Include="StoredProcedures\GetCustomer.sql" />
+    <Build Include="StoredProcedures\DeleteFlight.sql" />
+    <Build Include="StoredProcedures\AddAirplane.sql" />
+    <Build Include="StoredProcedures\AddFlight.sql" />
+    <Build Include="StoredProcedures\IsFlightNumberValid.sql" />
+    <Build Include="StoredProcedures\EditAirplane.sql" />
+    <Build Include="StoredProcedures\EditFlight.sql" />
+    <Build Include="StoredProcedures\DeleteSchedule.sql" />
+    <Build Include="StoredProcedures\AddSchedule.sql" />
+    <Build Include="StoredProcedures\EditSchedule.sql" />
+    <Build Include="StoredProcedures\GetToursForCustomer.sql" />
+    <Build Include="StoredProcedures\GetUser.sql" />
+    <Build Include="StoredProcedures\GetCustomerByEmail.sql" />
+    <Build Include="StoredProcedures\GetManagerByEmail.sql" />
+    <Build Include="StoredProcedures\GetUserById.sql" />
+    <Build Include="StoredProcedures\AddCustomer.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">

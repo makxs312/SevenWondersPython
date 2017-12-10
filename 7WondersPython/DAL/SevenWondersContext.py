@@ -15,19 +15,61 @@ class SevenWondersContext(object):
     DELETE_COUNTRY_SPROC = "[dbo].[DeleteCountry]"
     GET_COUNTRY_SPROC = "[dbo].[GetCountry]"
     ADD_COUNTRY_SPROC = "[dbo].[AddCountry]"
-    IS_COUNTRY_NAME_VALID = "[dbo].[IsCountryNameValid]"
+    IS_COUNTRY_NAME_VALID_SPROC = "[dbo].[IsCountryNameValid]"
 
     GET_CITIES_SPROC = "[dbo].[GetCities]"
     DELETE_CITY_SPROC = "[dbo].[DeleteCity]"
     GET_CITY_SPROC = "[dbo].[GetCity]"
     ADD_CITY_SPROC = "[dbo].[AddCity]"
-    IS_CITY_NAME_VALID = "[dbo].[IsCityNameValid]"
+    IS_CITY_NAME_VALID_SPROC = "[dbo].[IsCityNameValid]"
 
     GET_AIRPORTS_SPROC = "[dbo].[GetAirports]"
     DELETE_AIRPORT_SPROC = "[dbo].[DeleteAirport]"
     GET_AIRPORT_SPROC = "[dbo].[GetAirport]"
     ADD_AIRPORT_SPROC = "[dbo].[AddAirport]"
-    IS_AIRPORT_CODE_VALID = "[dbo].[IsAirportCodeValid]"
+    IS_AIRPORT_CODE_VALID_SPROC = "[dbo].[IsAirportCodeValid]"
+
+    GET_HOTELS_FOR_CITY_SPROC = "[dbo].[GetHotelsForCity]"
+    GET_FACILITIES_FOR_HOTEL_SPROC = "[dbo].[GetFacilitiesForHotel]"
+    GET_PHOTOES_FOR_HOTEL_SPROC = "[dbo].[GetPhotoesForHotel]"
+    GET_FREE_ROOMS_FOR_HOTEL_SPROC = "[dbo].[GetFreeRoomsForHotel]"
+    GET_EQUIPMENTS_FOR_ROOM_SPROC = "[dbo].[GetEquipmentsForRoom]"
+    GET_PHOTOES_FOR_ROOM_SPROC = "[dbo].[GetPhotoesForRoom]"
+    GET_HOTEL_SPROC = "[dbo].[GetHotel]"
+
+    GET_FREE_SCHEDULES_SPROC = "[dbo].[GetFreeSchedules]"
+
+    GET_FLIGHTS_SPROC = "[dbo].[GetFlights]"
+    GET_SCHEDULES_SPROC = "[dbo].[GetSchedules]"
+    DELETE_FLIGHT_SPROC = "[dbo].[DeleteFlight]"
+    ADD_AIRPLANE_SPROC = "[dbo].[AddAirplane]"
+    ADD_FLIGHT_SPROC = "[dbo].[AddFlight]"
+    EDIT_AIRPLANE_SPROC = "[dbo].[EditAirplane]"
+    EDIT_FLIGHT_SPROC = "[dbo].[EditFlight]"
+    IS_FLIGHT_NUMBER_VALID_SPROC = "[dbo].[IsFlightNumberValid]"
+    DELETE_SCHEDULE_SPROC = "[dbo].[DeleteSchedule]"
+    ADD_SCHEDULE_SPROC = "[dbo].[AddSchedule]"
+    EDIT_SCHEDULE_SPROC = "[dbo].[EditSchedule]"
+
+    ADD_RESERVATION_SPROC = "[dbo].[AddReservation]"
+    ADD_TOUR_SPROC = "[dbo].[AddTour]"
+    GET_TOUR_SPROC = "[dbo].[GetTour]"
+    DELETE_TOUR_SPROC = "[dbo].[DeleteTour]"
+    PAY_FOR_TOUR_SPROC = "[dbo].[PayForTour]"
+    GET_TOURS_FOR_MANAGER_SPROC = "[dbo].[GetToursForManager]"
+    GET_TOURS_FOR_CUSTOMER_SPROC = "[dbo].[GetToursForCustomer]"
+
+    GET_ROOM_SPROC = "[dbo].[GetRoom]"
+    GET_SCHEDULE_SPROC = "[dbo].[GetSchedule]"
+
+    EDIT_CUSTOMER_SPROC  = "[dbo].[EditCustomer]"
+
+    GET_CUSTOMER_SPROC = "[dbo].[GetCustomer]"
+    GET_USER_SPROC = "[dbo].[GetUser]"
+    GET_USER_BY_ID_SPROC = "[dbo].[GetUserById]"
+    GET_CUSTOMER_BY_EMAIL_SPROC = "[dbo].[GetCustomerByEmail]"
+    GET_MANAGER_BY_EMAIL_SPROC = "[dbo].[GetManagerByEmail]"
+    ADD_CUSTOMER_SPROC = "[dbo].[AddCustomer]"
 
     SEPARATOR = ","
 
@@ -38,7 +80,7 @@ class SevenWondersContext(object):
         return self.__exec_sproc(sproc_name, params)
 
     def __connect(self):
-        connection = pypyodbc.connect('Driver={ODBC Driver 13 for SQL Server};Server=(localdb)\MSSQLLocalDB;Database=SevenWonders;Trusted_Connection=Yes;')
+        connection = pypyodbc.connect('Driver={ODBC Driver 13 for SQL Server};Server=DESKTOP-7HN4MEC\SQLEXPRESS;;Database=SevenWonders;Trusted_Connection=Yes;')
         return connection.cursor()
 
     def __construct_command(self, sproc_name, params = None):

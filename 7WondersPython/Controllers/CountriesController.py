@@ -24,7 +24,7 @@ def add_country():
 @countries_controller.route("/IsNameValid", methods=["Get"])
 def is_name_valid():
     data = service.is_name_valid(request.args);
-    if data[0].values()[0] == 'True':
+    if data[0].get('') == 'True':
         return jsonify(True)
     else:
        return jsonify(False)

@@ -1,6 +1,7 @@
 from DAL.SevenWondersContext import SevenWondersContext
 import itertools
 
+context = SevenWondersContext()
 class CountryItem:
     Id = 0
     Text = ""
@@ -20,18 +21,15 @@ def convert_country_to_items(id, name):
     return item
 
 class ManagersService(object):
-    def get_managers(self):
-        context = SevenWondersContext()
+    def get_managers(self):        
         managers = context.exec_no_param_sproc(context.GET_MANAGERS_SPROC)
         return managers
 
     def get_countries(self):
-        context = SevenWondersContext()
         countries = context.exec_no_param_sproc(context.GET_COUNTRIES_SPROC)
         return countries
 
     def get_manager(self, id):
-        context = SevenWondersContext()
         manager = context.exec_param_sproc(context.GET_MANAGER_SPROC, [("id", id)])
         all_countries = self.get_countries()
         manager_countries = self.get_countries_for_manager(id)
@@ -51,17 +49,14 @@ class ManagersService(object):
         return manager
 
     def get_countries_for_manager(self,id):
-        context = SevenWondersContext()
         countries = context.exec_param_sproc(context.GET_COUNTRIES_FOR_MANAGER_SPROC, [("id", id)])
         return countries
 
     def change_manager_status(self, id):
-        context = SevenWondersContext()
         context.exec_param_sproc(context.CHANGE_MANAGER_STATUS_SPROC, [("id", id)])
         return
 
     def add_manager(self, immutableDictForm):
-        context = SevenWondersContext()
         countries = immutableDictForm.getlist("countries[]")
         id = immutableDictForm.get("manager[Id]")
         firstName = immutableDictForm.get("manager[FirstName]")

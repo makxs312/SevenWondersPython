@@ -8,7 +8,9 @@ service = CitiesService()
 
 @cities_controller.route("/GetCities", methods=["GET"])
 def get_cities():
-    data = service.get_cities()
+    countryId = request.args.get('countryId', '')
+    cityId = request.args.get('cityId', '')
+    data = service.get_cities(countryId, cityId)
     return jsonify(data)
 
 @cities_controller.route("/DeleteCity", methods=["POST"])
@@ -31,7 +33,7 @@ def add_city():
 @cities_controller.route("/IsNameValid", methods=["Get"])
 def is_name_valid():
     data = service.is_name_valid(request.args);
-    if data[0].values()[0] == 'True':
+    if data[0].get('') == 'True':
         return jsonify(True)
     else:
        return jsonify(False)

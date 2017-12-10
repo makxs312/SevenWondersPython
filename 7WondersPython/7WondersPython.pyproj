@@ -30,18 +30,37 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BLL\AccountService.py" />
     <Compile Include="BLL\AirportsService.py" />
     <Compile Include="BLL\CitiesService.py" />
     <Compile Include="BLL\CountriesService.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BLL\CustomerCabinetService.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BLL\CustomersService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BLL\FlightsService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BLL\HotelsService.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BLL\ManagersService.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BLL\SearchService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BLL\ToursService.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BLL\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\AccountController.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\AirportsController.py" />
@@ -49,12 +68,25 @@
     <Compile Include="Controllers\CountriesController.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\CustomerCabinetController.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\CustomersController.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\FlightsController.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\HotelsController.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\ManagersController.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\SearchController.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ToursManagementController.py" />
     <Compile Include="Controllers\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -136,6 +168,9 @@
     <Folder Include="static\Content\img\Rooms\Room73\" />
     <Folder Include="static\Content\img\Rooms\Room74\" />
     <Folder Include="static\Content\ManagersManagement\" />
+    <Folder Include="static\Content\Hotels\" />
+    <Folder Include="static\Content\ToursManagement\" />
+    <Folder Include="static\Content\Search\" />
     <Folder Include="static\Content\themes\" />
     <Folder Include="static\Content\themes\base\" />
     <Folder Include="static\Content\themes\base\images\" />
@@ -161,21 +196,28 @@
     <Folder Include="static\Scripts\CustomerCabinet\" />
     <Folder Include="static\Scripts\CustomersManagement\" />
     <Folder Include="static\Scripts\Flights\" />
-    <Folder Include="static\Scripts\Flights\globalize\" />
     <Folder Include="static\Scripts\Home\" />
     <Folder Include="static\Scripts\KnockoutHelpers\" />
     <Folder Include="static\Scripts\Login\" />
     <Folder Include="static\Scripts\ManagersManagement\" />
+    <Folder Include="static\Scripts\Hotels\" />
+    <Folder Include="static\Scripts\Account\" />
     <Folder Include="static\Scripts\Register\" />
     <Folder Include="static\Scripts\Search\" />
-    <Folder Include="static\Scripts\Tours\" />
-    <Folder Include="templates\Airports\" />
-    <Folder Include="templates\Cities\" />
-    <Folder Include="templates\ManagersManagement\" />
-    <Folder Include="templates\Home\" />
-    <Folder Include="templates\CustomersManagement\" />
-    <Folder Include="templates\Countries\" />
-    <Folder Include="templates\Search\" />
+    <Folder Include="static\Scripts\ToursManagement\" />
+    <Folder Include="templates\Views\CustomerCabinet\" />
+    <Folder Include="templates\Views\Airports\" />
+    <Folder Include="templates\Views\Cities\" />
+    <Folder Include="templates\Views\ManagersManagement\" />
+    <Folder Include="templates\Views\Home\" />
+    <Folder Include="templates\Views\CustomersManagement\" />
+    <Folder Include="templates\Views\Countries\" />
+    <Folder Include="templates\Views\Hotels\" />
+    <Folder Include="templates\Views\Flights\" />
+    <Folder Include="templates\Views\" />
+    <Folder Include="templates\Views\Account\" />
+    <Folder Include="templates\Views\ToursManagement\" />
+    <Folder Include="templates\Views\Search\" />
     <Folder Include="_7WondersPython\" />
     <Folder Include="static\" />
     <Folder Include="templates\" />
@@ -196,9 +238,12 @@
     <Content Include="static\Content\Countries\Index.css" />
     <Content Include="static\Content\creative.css" />
     <Content Include="static\Content\creative.min.css" />
-    <Content Include="static\Content\CustomerCabinet\Customer.css" />
+    <Content Include="static\Content\CustomerCabinet\Index.css" />
     <Content Include="static\Content\CustomersManagement\Index.css" />
+    <Content Include="static\Content\Flights\FlightShortInfo.css" />
     <Content Include="static\Content\Flights\Index.css" />
+    <Content Include="static\Content\Hotels\HotelShortInfo.css" />
+    <Content Include="static\Content\Hotels\RoomShortInfo.css" />
     <Content Include="static\Content\Images\loader.gif" />
     <Content Include="static\Content\img\1.jpg" />
     <Content Include="static\Content\img\17661561.jpg" />
@@ -317,6 +362,8 @@
     <Content Include="static\Content\img\tour4.jpeg" />
     <Content Include="static\Content\ManagersManagement\Index.css" />
     <Content Include="static\Content\PagedList.css" />
+    <Content Include="static\Content\Search\Booking.css" />
+    <Content Include="static\Content\Search\Index.css" />
     <Content Include="static\Content\select2.css" />
     <Content Include="static\Content\select2.min.css" />
     <Content Include="static\Content\Site.css" />
@@ -365,6 +412,7 @@
     <Content Include="static\Content\themes\base\tabs.css" />
     <Content Include="static\Content\themes\base\theme.css" />
     <Content Include="static\Content\themes\base\tooltip.css" />
+    <Content Include="static\Content\ToursManagement\Index.css" />
     <Content Include="static\Content\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="static\Content\vendor\bootstrap\css\bootstrap.min.css" />
     <Content Include="static\Content\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -422,24 +470,40 @@
     <Content Include="static\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="static\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="static\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="static\Scripts\Account\Login.js" />
+    <Content Include="static\Scripts\Account\Register.js" />
     <Content Include="static\Scripts\Airports\Index.js" />
     <Content Include="static\Scripts\bootstrap.js" />
     <Content Include="static\Scripts\bootstrap.min.js" />
     <Content Include="static\Scripts\Cities\Index.js" />
     <Content Include="static\Scripts\Countries\Index.js" />
     <Content Include="static\Scripts\CustomerCabinet\Index.js" />
-    <Content Include="static\Scripts\CustomerCabinet\Info.js" />
     <Content Include="static\Scripts\CustomersManagement\Index.js" />
+    <Content Include="static\Scripts\Flights\FlightShortInfo.js" />
     <Content Include="static\Scripts\Flights\Index.js" />
     <Content Include="static\Scripts\Home\Index.js" />
-    <Content Include="templates\Airports\Index.html" />
-    <Content Include="templates\Cities\Index.html" />
-    <Content Include="templates\Countries\Index.html" />
-    <Content Include="templates\CustomersManagement\Index.html" />
-    <Content Include="templates\Home\Contact.html" />
-    <Content Include="templates\Home\Index.html" />
-    <Content Include="templates\ManagersManagement\Index.html" />
-    <Content Include="templates\Search\Index.html" />
+    <Content Include="static\Scripts\Hotels\HotelShortInfo.js" />
+    <Content Include="static\Scripts\Hotels\RoomShortInfo.js" />
+    <Content Include="static\Scripts\Search\Booking.js" />
+    <Content Include="templates\Views\Account\Login.html" />
+    <Content Include="templates\Views\Account\Register.html" />
+    <Content Include="templates\Views\Airports\Index.html" />
+    <Content Include="templates\Views\Cities\Index.html" />
+    <Content Include="templates\Views\Countries\Index.html" />
+    <Content Include="templates\Views\CustomerCabinet\Index.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\Views\CustomersManagement\Index.html" />
+    <Content Include="templates\Views\Flights\FlightShortInfo.html" />
+    <Content Include="templates\Views\Flights\Index.html" />
+    <Content Include="templates\Views\Home\Contact.html" />
+    <Content Include="templates\Views\Home\Index.html" />
+    <Content Include="templates\Views\Hotels\HotelShortInfo.html" />
+    <Content Include="templates\Views\Hotels\RoomShortInfo.html" />
+    <Content Include="templates\Views\ManagersManagement\Index.html" />
+    <Content Include="templates\Views\Search\Booking.html" />
+    <Content Include="templates\Views\Search\Index.html" />
+    <Content Include="templates\Views\ToursManagement\Index.html" />
     <None Include="static\Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="static\Scripts\jquery-1.10.2.js" />
     <Content Include="static\Scripts\jquery-1.10.2.min.js" />
@@ -475,14 +539,14 @@
     <Content Include="static\Scripts\select2.min.js" />
     <Content Include="static\Scripts\Statistic.js" />
     <Content Include="static\Scripts\Table.js" />
-    <Content Include="static\Scripts\Tours\Index.js" />
+    <Content Include="static\Scripts\ToursManagement\Index.js" />
     <None Include="static\Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env1\">
       <Id>env1</Id>
-      <Version>2.7</Version>
-      <Description>env1 (Python 2.7 (64-bit))</Description>
+      <Version>3.6</Version>
+      <Description>env1 (Python 3.6 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>

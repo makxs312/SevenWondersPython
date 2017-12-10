@@ -1,24 +1,21 @@
 from DAL.SevenWondersContext import SevenWondersContext
 import itertools
 
+context = SevenWondersContext()
 class AirportsService(object):
-    def get_airports(self):
-        context = SevenWondersContext()
+    def get_airports(self):        
         airports = context.exec_no_param_sproc(context.GET_AIRPORTS_SPROC)
         return airports
   
     def delete_airport(self, id):
-        context = SevenWondersContext()
         context.exec_param_sproc(context.DELETE_AIRPORT_SPROC, [("id", id)])
         return
 
     def get_airport(self, id):
-        context = SevenWondersContext()
         city = context.exec_param_sproc(context.GET_AIRPORT_SPROC, [("id", id)])
         return city[0]
 
-    def add_airport(self, city):
-        context = SevenWondersContext()        
+    def add_airport(self, city):       
         id= city.get("Id");
         name = str(city.get("Name"));
         code = city.get("Code");
@@ -27,11 +24,9 @@ class AirportsService(object):
         return
 
     def is_code_valid(self, city):
-        context = SevenWondersContext()
         id = city.get("id");
         code = city.get("code");
-        isValid = context.exec_param_sproc(context.IS_AIRPORT_CODE_VALID, [("id", id), ("code", code)])
+        isValid = context.exec_param_sproc(context.IS_AIRPORT_CODE_VALID_SPROC, [("id", id), ("code", code)])
         return isValid;
-
 
 
