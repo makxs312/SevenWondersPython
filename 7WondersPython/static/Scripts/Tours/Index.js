@@ -37,7 +37,7 @@ function ToursTableViewModel() {
     }, self);
 
     self.loadTable = function () {
-        $.ajax("../api/ToursManagement/GetToursForManager", {
+        $.ajax("../api/Tours/GetToursForManager", {
             type: "get",
             data: {
                 pageIndex: self.pageIndex(),
@@ -98,7 +98,7 @@ function ToursTableViewModel() {
         var id = self.idOfSelectedTour();
         $.ajax({
             type: "POST",
-            url: '../api/ToursManagement/DeleteTour',
+            url: '../api/Tours/DeleteTour',
             data: JSON.stringify(id),
             contentType: "application/json",
             success: function (result) {
@@ -121,7 +121,7 @@ function ToursTableViewModel() {
         var id = self.idOfSelectedTour();
         $.ajax({
             type: "POST",
-            url: '../api/ToursManagement/PayForTour',
+            url: '../api/Tours/PayForTour',
             data: JSON.stringify(id),
             contentType: "application/json",
             success: function (result) {
@@ -163,7 +163,7 @@ function ToursTableViewModel() {
     self.updateTours = function () {
         $.ajax({
             type: "POST",
-            url: '../api/ToursManagement/UpdateTours',
+            url: '../api/Tours/UpdateTours',
             contentType: "application/json",
             success: function (result) {
                 self.loadTable();

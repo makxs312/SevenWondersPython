@@ -80,13 +80,11 @@
     <Compile Include="Controllers\HotelsController.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\ManagersController.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Controllers\ManagersController.py" />
     <Compile Include="Controllers\SearchController.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\ToursManagementController.py" />
+    <Compile Include="Controllers\ToursController.py" />
     <Compile Include="Controllers\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -115,7 +113,7 @@
     <Folder Include="static\Content\Contact\" />
     <Folder Include="static\Content\Countries\" />
     <Folder Include="static\Content\CustomerCabinet\" />
-    <Folder Include="static\Content\CustomersManagement\" />
+    <Folder Include="static\Content\Customers\" />
     <Folder Include="static\Content\Flights\" />
     <Folder Include="static\Content\Images\" />
     <Folder Include="static\Content\img\" />
@@ -167,9 +165,9 @@
     <Folder Include="static\Content\img\Rooms\Room68\" />
     <Folder Include="static\Content\img\Rooms\Room73\" />
     <Folder Include="static\Content\img\Rooms\Room74\" />
-    <Folder Include="static\Content\ManagersManagement\" />
+    <Folder Include="static\Content\Managers\" />
     <Folder Include="static\Content\Hotels\" />
-    <Folder Include="static\Content\ToursManagement\" />
+    <Folder Include="static\Content\Tours\" />
     <Folder Include="static\Content\Search\" />
     <Folder Include="static\Content\themes\" />
     <Folder Include="static\Content\themes\base\" />
@@ -194,29 +192,29 @@
     <Folder Include="static\Scripts\cldr\" />
     <Folder Include="static\Scripts\Countries\" />
     <Folder Include="static\Scripts\CustomerCabinet\" />
-    <Folder Include="static\Scripts\CustomersManagement\" />
+    <Folder Include="static\Scripts\Customers\" />
     <Folder Include="static\Scripts\Flights\" />
     <Folder Include="static\Scripts\Home\" />
     <Folder Include="static\Scripts\KnockoutHelpers\" />
     <Folder Include="static\Scripts\Login\" />
-    <Folder Include="static\Scripts\ManagersManagement\" />
+    <Folder Include="static\Scripts\Managers\" />
     <Folder Include="static\Scripts\Hotels\" />
     <Folder Include="static\Scripts\Account\" />
     <Folder Include="static\Scripts\Register\" />
     <Folder Include="static\Scripts\Search\" />
-    <Folder Include="static\Scripts\ToursManagement\" />
+    <Folder Include="static\Scripts\Tours\" />
     <Folder Include="templates\Views\CustomerCabinet\" />
     <Folder Include="templates\Views\Airports\" />
     <Folder Include="templates\Views\Cities\" />
-    <Folder Include="templates\Views\ManagersManagement\" />
+    <Folder Include="templates\Views\Managers\" />
     <Folder Include="templates\Views\Home\" />
-    <Folder Include="templates\Views\CustomersManagement\" />
+    <Folder Include="templates\Views\Customers\" />
     <Folder Include="templates\Views\Countries\" />
     <Folder Include="templates\Views\Hotels\" />
     <Folder Include="templates\Views\Flights\" />
     <Folder Include="templates\Views\" />
     <Folder Include="templates\Views\Account\" />
-    <Folder Include="templates\Views\ToursManagement\" />
+    <Folder Include="templates\Views\Tours\" />
     <Folder Include="templates\Views\Search\" />
     <Folder Include="_7WondersPython\" />
     <Folder Include="static\" />
@@ -239,7 +237,7 @@
     <Content Include="static\Content\creative.css" />
     <Content Include="static\Content\creative.min.css" />
     <Content Include="static\Content\CustomerCabinet\Index.css" />
-    <Content Include="static\Content\CustomersManagement\Index.css" />
+    <Content Include="static\Content\Customers\Index.css" />
     <Content Include="static\Content\Flights\FlightShortInfo.css" />
     <Content Include="static\Content\Flights\Index.css" />
     <Content Include="static\Content\Hotels\HotelShortInfo.css" />
@@ -360,7 +358,7 @@
     <Content Include="static\Content\img\tour2.jpg" />
     <Content Include="static\Content\img\tour3.jpg" />
     <Content Include="static\Content\img\tour4.jpeg" />
-    <Content Include="static\Content\ManagersManagement\Index.css" />
+    <Content Include="static\Content\Managers\Index.css" />
     <Content Include="static\Content\PagedList.css" />
     <Content Include="static\Content\Search\Booking.css" />
     <Content Include="static\Content\Search\Index.css" />
@@ -412,7 +410,7 @@
     <Content Include="static\Content\themes\base\tabs.css" />
     <Content Include="static\Content\themes\base\theme.css" />
     <Content Include="static\Content\themes\base\tooltip.css" />
-    <Content Include="static\Content\ToursManagement\Index.css" />
+    <Content Include="static\Content\Tours\Index.css" />
     <Content Include="static\Content\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="static\Content\vendor\bootstrap\css\bootstrap.min.css" />
     <Content Include="static\Content\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -478,7 +476,7 @@
     <Content Include="static\Scripts\Cities\Index.js" />
     <Content Include="static\Scripts\Countries\Index.js" />
     <Content Include="static\Scripts\CustomerCabinet\Index.js" />
-    <Content Include="static\Scripts\CustomersManagement\Index.js" />
+    <Content Include="static\Scripts\Customers\Index.js" />
     <Content Include="static\Scripts\Flights\FlightShortInfo.js" />
     <Content Include="static\Scripts\Flights\Index.js" />
     <Content Include="static\Scripts\Home\Index.js" />
@@ -493,17 +491,17 @@
     <Content Include="templates\Views\CustomerCabinet\Index.html">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="templates\Views\CustomersManagement\Index.html" />
+    <Content Include="templates\Views\Customers\Index.html" />
     <Content Include="templates\Views\Flights\FlightShortInfo.html" />
     <Content Include="templates\Views\Flights\Index.html" />
     <Content Include="templates\Views\Home\Contact.html" />
     <Content Include="templates\Views\Home\Index.html" />
     <Content Include="templates\Views\Hotels\HotelShortInfo.html" />
     <Content Include="templates\Views\Hotels\RoomShortInfo.html" />
-    <Content Include="templates\Views\ManagersManagement\Index.html" />
+    <Content Include="templates\Views\Managers\Index.html" />
     <Content Include="templates\Views\Search\Booking.html" />
     <Content Include="templates\Views\Search\Index.html" />
-    <Content Include="templates\Views\ToursManagement\Index.html" />
+    <Content Include="templates\Views\Tours\Index.html" />
     <None Include="static\Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="static\Scripts\jquery-1.10.2.js" />
     <Content Include="static\Scripts\jquery-1.10.2.min.js" />
@@ -527,7 +525,7 @@
     <Content Include="static\Scripts\knockout.validation.min.js" />
     <Content Include="static\Scripts\knockout.validation.min.js.map" />
     <Content Include="static\Scripts\Login\Index.js" />
-    <Content Include="static\Scripts\ManagersManagement\Index.js" />
+    <Content Include="static\Scripts\Managers\Index.js" />
     <Content Include="static\Scripts\modernizr-2.6.2.js" />
     <Content Include="static\Scripts\Register\Index.js" />
     <Content Include="static\Scripts\respond.js" />
@@ -539,7 +537,7 @@
     <Content Include="static\Scripts\select2.min.js" />
     <Content Include="static\Scripts\Statistic.js" />
     <Content Include="static\Scripts\Table.js" />
-    <Content Include="static\Scripts\ToursManagement\Index.js" />
+    <Content Include="static\Scripts\Tours\Index.js" />
     <None Include="static\Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>

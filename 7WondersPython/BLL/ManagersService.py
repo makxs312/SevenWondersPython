@@ -1,4 +1,7 @@
 from DAL.SevenWondersContext import SevenWondersContext
+
+from BLL.AccountService import AccountService
+accountService = AccountService()
 import itertools
 
 context = SevenWondersContext()
@@ -65,6 +68,8 @@ class ManagersService(object):
         phoneNumber = immutableDictForm.get("manager[PhoneNumber]")
         email = immutableDictForm.get("manager[Email]")
         password = immutableDictForm.get("manager[Password]")
+        if immutableDictForm.get("manager[Password]")!='': 
+            password = accountService.hash_password(immutableDictForm.get("manager[Password]")).decode()
         countriesList = ",".join(countries)
         context.exec_param_sproc(context.ADD_MANAGER_SPROC,
                                  [("id", id),

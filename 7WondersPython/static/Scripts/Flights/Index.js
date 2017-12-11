@@ -150,7 +150,7 @@ function FlightModifyViewModel(FlightsTableViewModel) {
     self.selectedChoiceArrival = ko.observable()
         .extend({ required: true, isDifference: self.selectedChoiceDeparture });
     self.loadAirports = function () {
-        $.ajax("../api/Flights/GetAirports", {
+        $.ajax("../api/Airorts/GetAirports", {
             type: "get",
             contentType: "application/json",
             success: function (result) {

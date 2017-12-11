@@ -13,24 +13,24 @@ def get_cities():
     data = service.get_cities(countryId, cityId)
     return jsonify(data)
 
-@cities_controller.route("/DeleteCity", methods=["POST"])
-def delete_city():
-    id = request.get_json();
-    service.delete_city(id)
-    return 'Ok'
-
 @cities_controller.route("/GetCity", methods=["GET"])
 def get_city():
     id = request.args.get('id', '')
     data = service.get_city(id)
     return jsonify(data)
 
+@cities_controller.route("/DeleteCity", methods=["POST"])
+def delete_city():
+    id = request.get_json();
+    service.delete_city(id)
+    return 'Ok'
+
 @cities_controller.route("/AddCity", methods=["POST"])
 def add_city():
     service.add_city(request.get_json())
     return 'Ok'
 
-@cities_controller.route("/IsNameValid", methods=["Get"])
+@cities_controller.route("/IsNameValid", methods=["GET"])
 def is_name_valid():
     data = service.is_name_valid(request.args);
     if data[0].get('') == 'True':

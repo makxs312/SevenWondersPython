@@ -11,11 +11,6 @@ def get_managers():
     data = service.get_managers()
     return jsonify(data)
 
-@managers_controller.route("/GetCountries", methods=["GET"])
-def get_countries():
-    data = service.get_countries()
-    return jsonify(data)
-
 @managers_controller.route("/GetManager/<int:id>", methods=["GET"])
 def get_manager(id):
     data = service.get_manager(id)

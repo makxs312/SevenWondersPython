@@ -51,9 +51,6 @@ function changeStatus(id) {
 				$(css).text("Active");
 				$(css).css("color", "green");
 			}
-		},
-		error: function () {
-			alert('failed to change status');
 		}
 	});
 }

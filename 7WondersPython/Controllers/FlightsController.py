@@ -76,13 +76,6 @@ def get_flights():
     result["dataCount"] = dataCount
     return jsonify(result)
 
-@flights_controller.route("/GetAirports", methods=["GET"])
-def get_airoports():
-    airoports = airportsService.get_airports()
-    for airoport in airoports:
-        airoport["Text"] = airoport.get("Name")
-    return jsonify(airoports)
-
 @flights_controller.route("/GetSchedules", methods=["GET"])
 def get_schedules():
     flightId = int(request.args.get('id', 0))
@@ -95,7 +88,7 @@ def delete_flight():
     flightsService.delete_flight(flightId)
     return "Ok"
 
-@flights_controller.route("/IsNumberValid", methods=["Get"])
+@flights_controller.route("/IsNumberValid", methods=["GET"])
 def is_number_valid():
     data = flightsService.is_number_valid(request.args);
     if data[0].get('') == 'True':

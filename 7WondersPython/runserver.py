@@ -8,7 +8,7 @@ from Controllers.CountriesController import countries_controller
 from Controllers.CitiesController import cities_controller
 from Controllers.AirportsController import airports_controller
 from Controllers.SearchController import search_controller
-from Controllers.ToursManagementController import tours_management_controller
+from Controllers.ToursController import tours_controller
 from Controllers.HotelsController import hotels_controller
 from Controllers.FlightsController import flights_controller
 from Controllers.CustomerCabinetController import customer_cabinet_controller
@@ -29,7 +29,7 @@ app.register_blueprint(countries_controller)
 app.register_blueprint(cities_controller)
 app.register_blueprint(airports_controller)
 app.register_blueprint(search_controller)
-app.register_blueprint(tours_management_controller)
+app.register_blueprint(tours_controller)
 app.register_blueprint(hotels_controller)
 app.register_blueprint(flights_controller)
 app.register_blueprint(customer_cabinet_controller)
@@ -45,17 +45,17 @@ def index():
         "me": environ.get('USERNAME')}
     return render_template('Views/Home/Index.html',data=data)
 
-@app.route('/Views/ManagersManagement/Index.html')
-def html_managers_management_lookup():
+@app.route('/Views/Managers/Index.html')
+def html_managers_lookup():
     try:
-        return render_template('Views/ManagersManagement/Index.html')
+        return render_template('Views/Managers/Index.html')
     except TemplateNotFound:
         abort(404)
 
-@app.route('/Views/CustomersManagement/Index.html')
-def html_customers_management_lookup():
+@app.route('/Views/Customers/Index.html')
+def html_customers_lookup():
     try:
-        return render_template('Views/CustomersManagement/Index.html')
+        return render_template('Views/Customers/Index.html')
     except TemplateNotFound:
         abort(404)
 
@@ -122,10 +122,10 @@ def html_flight_short_info_lookup():
     except TemplateNotFound:
         abort(404)
 
-@app.route('/Views/ToursManagement/Index.html')
-def html_toours_management_lookup():
+@app.route('/Views/Tours/Index.html')
+def html_toours_lookup():
     try:
-        return render_template('Views/ToursManagement/Index.html')
+        return render_template('Views/Tours/Index.html')
     except TemplateNotFound:
         abort(404)
 
