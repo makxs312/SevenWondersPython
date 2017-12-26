@@ -48,5 +48,23 @@ class SevenWonders_tests(unittest.TestCase):
                 'REMOTE_ADDR': '127.0.0.1'
             })
         self.assertEqual(result.status_code, 200)
+
+    def test_add_city(self):
+        result = self.app.post('/api/Cities/AddCity', data=json.dumps(dict(Id='7777', Name='Gondolin', CountryId='2', IsDeleted='False')),
+                              content_type='application/json',
+            environ_base={
+                'HTTP_USER_AGENT': 'Chrome',
+                'REMOTE_ADDR': '127.0.0.1'
+            })
+        self.assertEqual(result.status_code, 200)
+
+    def test_delete_city(self):
+        result = self.app.post('/api/Cities/DeleteCity', data=json.dumps(5),
+                              content_type='application/json',
+            environ_base={
+                'HTTP_USER_AGENT': 'Chrome',
+                'REMOTE_ADDR': '127.0.0.1'
+            })
+        self.assertEqual(result.status_code, 200)
 if __name__ == '__main__':
     unittest.main()
